@@ -12,6 +12,7 @@ class OrderList extends Component {
     fetch('/mock/orders.json').then(res => {
       if (res.ok) {
         res.json().then(data => {
+          console.log(data);
           this.setState({
             data
           });

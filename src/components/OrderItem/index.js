@@ -4,10 +4,10 @@ class OrderItem extends Component {
   constructor() {
     super();
     this.state = {
-      // stars: this.props.data.stars || 0,
+      // stars: props.data.stars || 0,
       stars: 0,
       editing: false,
-      // textareaContent: this.props.data.comment || ''
+      // textareaContent: props.data.comment || ''
       textareaContent: ''
     };
     this.comment = this.comment.bind(this);
@@ -21,7 +21,6 @@ class OrderItem extends Component {
     });
   }
   comment(e) {
-    e.preventDefault();
     this.setState({
       editing: true
     });
@@ -29,7 +28,6 @@ class OrderItem extends Component {
   submit() {
     const { id } = this.props.data;
     const { textareaContent, stars } = this.state;
-    console.log('area content:', this.state.textareaContent);
     this.setState({
       editing: false
     });
@@ -65,7 +63,6 @@ class OrderItem extends Component {
                   <button className="orderItem__btn-grey"> 已评价</button>
                 ) : (
                   <button className="orderItem__btn-red" onClick={this.comment}>
-                    {' '}
                     评价
                   </button>
                 )}
@@ -106,7 +103,11 @@ class OrderItem extends Component {
         {[1, 2, 3, 4, 5].map((item, idx) => {
           const lightClass = stars >= item ? 'orderItem__btn-red' : '';
           return (
-            <span className={lightClass} key={idx} onClick={this.starClick.bind(this, item)}>
+            <span
+              className={lightClass}
+              key={idx}
+              onClick={this.starClick.bind(this, item)}
+            >
               ★
             </span>
           );
