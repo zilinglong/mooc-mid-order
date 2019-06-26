@@ -44,3 +44,7 @@
   background: #ccc;
   color: #fff;
 }
+.orderItem__comment {
+  width: 100%;
+  border: 1px solid #ccc;
+}
